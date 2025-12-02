@@ -1,110 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <!-- =========================================================
+       META: ULTRA PERFORMANCE + SEO-GRADE MARKUP (2026)
+       ========================================================= -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MAKAUT GPA Calculator</title>
-  <!-- ✅ Primary Meta Tags -->
-  <meta name="title" content="MAKAUT GPA & Percentage Calculator | Openroot">
-  <meta name="description" content="Calculate SGPA, YGPA, DGPA, CGPA, and their corresponding percentages quickly with Openroot's MAKAUT GPA Calculator. Perfect for students.">
-  <meta name="keywords" content="MAKAUT GPA calculator, MAKAUT percentage calculator, SGPA calculator, YGPA calculator, DGPA calculator, CGPA calculator, university grade calculator, Openroot, student tools, GPA to percentage converter">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>MAKAUT GPA & Percentage Calculator (2026) | Openroot</title>
+
+  <!-- Primary Meta -->
+  <meta name="description"
+    content="Free MAKAUT GPA Calculator for SGPA, YGPA, DGPA, CGPA and Percentage Conversion. Fast, accurate, university-compatible calculations for all MAKAUT students.">
+  <meta name="keywords"
+    content="MAKAUT GPA Calculator, SGPA Calculator, CGPA Calculator, MAKAUT Percentage Converter, DGPA, YGPA, Makaut Tools, Makaut Result Calculator">
   <meta name="author" content="Openroot">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://ulvoxo.com/makaut-grade-calculator/">
 
-  <!-- ✅ Open Graph (Social Media Preview) -->
-  <meta property="og:title" content="MAKAUT GPA & Percentage Calculator | Openroot">
-  <meta property="og:description" content="Quickly calculate SGPA, YGPA, DGPA, CGPA and percentages with Openroot's free MAKAUT GPA calculator.">
-  <meta property="og:image" content="https://ulvoxo.com/makaut-grade-calculator/assets/openroot-withoutbg.png">
-  <meta property="og:url" content="https://ulvoxo.com/makaut-grade-calculator/">
+  <!-- Canonical -->
+  <link rel="canonical" href="https://openroot.in/makaut-grade-calculator/" />
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="MAKAUT GPA Calculator | SGPA, YGPA, DGPA, CGPA & Percentage Converter">
+  <meta property="og:description"
+    content="Fast and accurate MAKAUT GPA Calculator. Convert SGPA, YGPA, DGPA, CGPA to Percentage instantly. Trusted by students.">
+  <meta property="og:image" content="https://openroot.in/makaut-grade-calculator/assets/openroot-withoutbg.png">
+  <meta property="og:url" content="https://openroot.in/makaut-grade-calculator/">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Openroot">
 
-  <!-- ✅ Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="MAKAUT GPA & Percentage Calculator | Openroot">
-  <meta name="twitter:description" content="Easily calculate SGPA, YGPA, DGPA, CGPA and percentages with this free MAKAUT GPA Calculator for students.">
-  <meta name="twitter:image" content="https://ulvoxo.com/makaut-grade-calculator/assets/openroot-withoutbg.png">
-  
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <!-- ========== Header ========== -->
-  <header class="site-header">
-    <div class="logo-wrapper">
-      <img src="./assets/openroot-withoutbg.png" alt="company-logo" class="site-logo" />
-      <img src="./assets/Maulana_Abul_Kalam_Azad_University_of_Technology_Logo.svg" alt="university-logo" class="uni-logo" />
-      <h1> MAKAUT GPA & % Calculator</h1>
-    </div>
-    <!-- Top Bar -->
-    <div class="top-bar">
-      <button id="showCalcBtn" onclick="showCalculations()">📖 Show Calculations</button>
+
+  <!-- =========================================================
+       HEADER
+       ========================================================= -->
+  <header class="site-header" role="banner">
+    <div class="brand-block">
+      <img src="./assets/openroot-white-nobg.png" alt="Openroot Logo" class="brand-logo" height="36">
+      <img src="./assets/Maulana_Abul_Kalam_Azad_University_of_Technology_Logo.svg"
+          alt="MAKAUT University Logo"
+          class="university-logo"
+          height="36"
+          width="auto">
     </div>
 
-    <!-- 📖 Fullscreen Calculation Screen -->
-    <div id="calcScreen">
-      <button id="backBtn" onclick="hideCalculations()">⬅ Back</button>
-      <div class="calcContent">
-        <h1>Makaut Calculation Rules</h1>
-        <img src="./assets/calculation.png" alt="Calculation Screenshot">
-      </div>
+    <!-- Hamburger for mobile -->
+    <button class="hamburger" id="hamburgerBtn">☰</button>
+
+    <!-- Normal button -->
+    <button id="showCalcBtn" class="btn btn-primary calc-btn">📖 Show Calculations</button>
+
+    <!-- Mobile dropdown -->
+    <div class="mobile-menu" id="mobileMenu">
+      <button class="btn btn-primary w-100" onclick="showCalculations()">📖 Show Calculations</button>
     </div>
   </header>
 
-  <!-- Main Tools -->
-  <div id="mainTools" class="container">
-    <!-- SGPA to Percentage -->
-    <section class="card">
-      <h2>SGPA ➜ %</h2>
-      <input type="number" id="sgpa" step="0.01" placeholder="Enter SGPA (e.g. 8.2)" />
-      <button onclick="convertSGPA()">Convert</button>
+  <!-- =========================================================
+       FULLSCREEN RULES MODAL
+       ========================================================= -->
+  <div id="calcScreen" class="modal" aria-hidden="true">
+    <button id="backBtn" class="btn btn-ghost back-btn">⬅ Back</button>
+
+    <div class="modal-content">
+      <h2>Makaut Calculation Formula Sheet</h2>
+      <img src="./assets/calculation.png" alt="MAKAUT Grading Formula Rules">
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SCREEN 1 — OPTION SELECTOR
+       ========================================================= -->
+  <div
+    class="info-banner">
+    <h1>MAKAUT GPA & Percentage Calculator</h1>
+  </div>
+  <main id="selectionScreen" class="selection-grid">
+    <h2>What do you want to calculate?</h2>
+
+    <div class="select-card" onclick="openTool('sgpaTool')">
+      <img src="./assets/sgpa.avif" alt="SGPA Icon">
+    </div>
+
+    <div class="select-card" onclick="openTool('ygpaTool')">
+      <img src="./assets/ygpa.avif" alt="YGPA Icon">
+    </div>
+
+    <div class="select-card" onclick="openTool('dgpaTool')">
+      <img src="./assets/dgpa.avif" alt="DGPA Icon">
+    </div>
+
+    <div class="select-card" onclick="openTool('cgpaTool')">
+      <img src="./assets/cgpa.avif" alt="CGPA Icon">
+    </div>
+  </main>
+
+  <!-- =========================================================
+       SCREEN 2 — ACTUAL CALCULATORS (HIDDEN UNTIL CLICK)
+       ========================================================= -->
+  <main id="mainTools" class="tools-grid hidden">
+
+    <!-- SGPA -->
+    <section class="card tool-card" id="sgpaTool">
+      <button class="back-to-menu" onclick="backToMenu()">← Back</button>
+      <h2>SGPA → Percentage</h2>
+      <input type="number" id="sgpa" placeholder="e.g. 8.20" step="0.01">
+      <button class="btn btn-primary" onclick="convertSGPA()">Convert</button>
       <p id="sgpaResult" class="output"></p>
     </section>
 
     <!-- YGPA -->
-    <section class="card">
-      <h2>YGPA + %</h2>
-      <input type="number" id="ygpaOddCP" placeholder="Odd Sem Credit Points" />
-      <input type="number" id="ygpaOddC" placeholder="Odd Sem Credits" />
-      <input type="number" id="ygpaEvenCP" placeholder="Even Sem Credit Points" />
-      <input type="number" id="ygpaEvenC" placeholder="Even Sem Credits" />
-      <button onclick="calculateYGPA()">Calculate</button>
+    <section class="card tool-card" id="ygpaTool">
+      <button class="back-to-menu" onclick="backToMenu()">← Back</button>
+      <h2>YGPA + Percentage</h2>
+      <input type="number" id="ygpaOddCP" placeholder="Odd Sem Credit Points">
+      <input type="number" id="ygpaOddC" placeholder="Odd Sem Credits">
+      <input type="number" id="ygpaEvenCP" placeholder="Even Sem Credit Points">
+      <input type="number" id="ygpaEvenC" placeholder="Even Sem Credits">
+      <button class="btn btn-primary" onclick="calculateYGPA()">Calculate</button>
       <p id="ygpaResult" class="output"></p>
     </section>
 
     <!-- DGPA -->
-    <section class="card">
-      <h2>DGPA + %</h2>
-      <select id="courseType" onchange="updateYGPAFields()">
+    <section class="card tool-card" id="dgpaTool">
+      <button class="back-to-menu" onclick="backToMenu()">← Back</button>
+      <h2>DGPA + Percentage</h2>
+
+      <select id="courseType">
         <option value="1">1-Year Course</option>
         <option value="2">2-Year Course</option>
         <option value="3">3-Year Course</option>
-        <option value="3l">3-Year Course Lateral</option>
+        <option value="3l">3-Year Lateral</option>
         <option value="4">4-Year Course</option>
       </select>
-      <div class="ygpa-field"><input type="number" id="yg1" placeholder="Enter YGPA 1" /></div>
-      <div class="ygpa-field"><input type="number" id="yg2" placeholder="Enter YGPA 2" /></div>
-      <div class="ygpa-field"><input type="number" id="yg3" placeholder="Enter YGPA 3" /></div>
-      <div class="ygpa-field"><input type="number" id="yg4" placeholder="Enter YGPA 4" /></div>
-      <button onclick="calculateDGPA()">Calculate</button>
+
+      <input type="number" id="yg1" placeholder="YGPA 1">
+      <input type="number" id="yg2" placeholder="YGPA 2">
+      <input type="number" id="yg3" placeholder="YGPA 3">
+      <input type="number" id="yg4" placeholder="YGPA 4">
+
+      <button class="btn btn-primary" onclick="calculateDGPA()">Calculate</button>
       <p id="dgpaResult" class="output"></p>
     </section>
 
     <!-- CGPA -->
-    <section class="card">
-      <h2>CGPA + %</h2>
-      <input type="number" id="cgpaCP" placeholder="Total Credit Points" />
-      <input type="number" id="cgpaC" placeholder="Total Credits" />
-      <button onclick="calculateCGPA()">Calculate</button>
+    <section class="card tool-card" id="cgpaTool">
+      <button class="back-to-menu" onclick="backToMenu()">← Back</button>
+      <h2>CGPA → Percentage</h2>
+
+      <input type="number" id="cgpaCP" placeholder="Total Credit Points">
+      <input type="number" id="cgpaC" placeholder="Total Credits">
+
+      <button class="btn btn-primary" onclick="calculateCGPA()">Calculate</button>
       <p id="cgpaResult" class="output"></p>
     </section>
-  </div>
 
-  <!-- ========== Footer ========== -->
+  </main>
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
   <footer class="site-footer">
     <p>&copy; 2025 OPENROOT. All rights reserved.</p>
-    <p>Made with ❤️ for students.</p>
+    <p>Made with ❤️ for MAKAUT students.</p>
   </footer>
 
   <script src="script.js"></script>
