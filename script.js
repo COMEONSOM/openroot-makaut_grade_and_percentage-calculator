@@ -253,6 +253,35 @@ function updateYGPAFields() {
   });
 }
 
+// ============================================================
+// MOBILE MENU AUTOCLOSE FIX
+// ============================================================
+
+// Close menu when clicking outside
+document.addEventListener("click", (event) => {
+  if (
+    mobileMenu.classList.contains("show") &&
+    !mobileMenu.contains(event.target) &&
+    !hamburgerBtn.contains(event.target)
+  ) {
+    mobileMenu.classList.remove("show");
+  }
+});
+
+// Close menu on window resize (switching to desktop mode)
+window.addEventListener("resize", () => {
+  if (mobileMenu.classList.contains("show")) {
+    mobileMenu.classList.remove("show");
+  }
+});
+
+// Optional: Close on scroll or touch movement (UX polish)
+window.addEventListener("scroll", () => {
+  mobileMenu.classList.remove("show");
+});
+window.addEventListener("touchmove", () => {
+  mobileMenu.classList.remove("show");
+});
 
 
 // ============================================================
