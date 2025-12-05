@@ -49,11 +49,7 @@ html, body {
 
 body {
   font-family: "Inter", system-ui, -apple-system, sans-serif;
-  background:
-    radial-gradient(at top right, #e6f0ff 0%, transparent 45%),
-    radial-gradient(at bottom left, #e8fff7 0%, transparent 45%),
-    var(--bg);
-
+  background: var(--bg);
   color: var(--brand-1);
   display: flex;
   flex-direction: column;
@@ -74,7 +70,7 @@ body {
   top: 0;
   z-index: 1200;
 
-  background: linear-gradient(135deg, #030b14 0%, #081c3d 70%, #082d56 100%);
+  background: linear-gradient(135deg, #030b14ec 0%, #081c3def 70%, #082c56f3 100%);
   padding: 1rem 1.4rem;
 
   display: flex;
@@ -90,9 +86,8 @@ body {
   gap: .8rem;
 }
 
-.brand-logo,
-.university-logo {
-  width: 70px;
+.brand-logo {
+  width: 86px;
   height: auto;
 }
 
@@ -166,18 +161,18 @@ body {
 }
 
 /* ============================
-   INFO HEADER
+   INFO BANNER
    ============================ */
 
 .info-banner {
-  text-align: center;
-  padding: 1.3rem 1rem .5rem;
+  font-size: clamp(0.75rem, 2vw, 1.2rem);
+  color: var(--brand-2);
+  font-weight: 800;
 }
 
 .info-banner h1 {
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
-  color: var(--brand-2);
-  font-weight: 800;
+  text-align: center;
+  margin-top: 20px;
 }
 
 /* ============================
@@ -198,7 +193,7 @@ body {
 .selection-grid h2 {
   grid-column: 1 / -1;
   margin-bottom: 1rem;
-  font-size: 1.7rem;
+  font-size:clamp(0.75rem, 2vw, 1.2rem);
   font-weight: 900;
 }
 
@@ -357,10 +352,11 @@ body {
 
 .site-footer {
   margin-top: auto;
-  background: #f8f4f6;
+  background: var(--bg);
   padding: 2rem;
   text-align: center;
-  color: #000000;
+  color: #615e5e;
+  font-weight: 500;
 }
 
 .site-footer p:last-child {
@@ -372,7 +368,7 @@ body {
    MOBILE FIXES
    ============================ */
 
-@media (max-width: 768px) {
+@media (max-width: 999px) {
 
   .selection-grid {
     grid-template-columns: 1fr 1fr;
@@ -405,6 +401,23 @@ body {
     max-height: 240px;
   }
 }
+/* ============================
+   DESKTOP + MID-SCREEN FIXES
+   ============================ */
+
+/* Tablets / Small Laptops — 3 per row */
+@media (min-width: 1000px) {
+  .selection-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+  }
+
+  .select-card {
+    width: clamp(140px, 28vw, 180px);
+    height: clamp(140px, 28vw, 180px);
+  }
+}
+
 
 /* ============================
    ACCESSIBILITY
