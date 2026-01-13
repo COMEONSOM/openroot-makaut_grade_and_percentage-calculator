@@ -1,6 +1,6 @@
 /* ===========================================================================
    ENTERPRISE ERP UI — MAKAUT GPA CALCULATOR
-   Optimized + Fixed + Cleaned
+   Optimized + Cleaned (Dead code removed)
    =========================================================================== */
 
 /* ============================
@@ -43,9 +43,7 @@
   padding: 0;
 }
 
-html, body {
-  height: 100%;
-}
+html, body { height: 100%; }
 
 body {
   font-family: "Inter", system-ui, -apple-system, sans-serif;
@@ -57,9 +55,7 @@ body {
   line-height: 1.5;
 }
 
-.hidden {
-  display: none !important;
-}
+.hidden { display: none !important; }
 
 /* ============================
    HEADER
@@ -91,6 +87,14 @@ body {
   height: auto;
 }
 
+.logo-text h1 {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  color: #f8f8f8;
+  user-select: none;
+}
+
 .hamburger {
   font-size: 1.6rem;
   background: none;
@@ -101,7 +105,7 @@ body {
 }
 
 /* ============================
-   MOBILE DROPDOWN MENU
+   MOBILE DROPDOWN
    ============================ */
 
 .mobile-menu {
@@ -115,15 +119,12 @@ body {
 
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-
+  gap: .8rem;
   min-width: 200px;
   z-index: 2000;
 }
 
-.mobile-menu:not(.show) {
-  display: none;
-}
+.mobile-menu:not(.show) { display: none; }
 
 /* ============================
    BUTTONS
@@ -147,7 +148,7 @@ body {
   cursor: pointer;
 
   box-shadow: 0 10px 28px rgba(0,140,255,.25);
-  transition: 0.2s ease;
+  transition: .2s ease;
 }
 
 .btn:hover {
@@ -161,22 +162,7 @@ body {
 }
 
 /* ============================
-   INFO BANNER
-   ============================ */
-
-.info-banner {
-  font-size: clamp(0.75rem, 2vw, 1.2rem);
-  color: var(--brand-2);
-  font-weight: 800;
-}
-
-.info-banner h1 {
-  text-align: center;
-  margin-top: 20px;
-}
-
-/* ============================
-   SELECTION GRID (SEPARATE)
+   SELECTION GRID
    ============================ */
 
 .selection-grid {
@@ -186,20 +172,9 @@ body {
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem 1rem; 
+  gap: 1rem;
   justify-items: center;
 }
-
-.selection-grid h2 {
-  grid-column: 1 / -1;
-  margin-bottom: 1rem;
-  font-size:clamp(0.75rem, 2vw, 1.2rem);
-  font-weight: 900;
-}
-
-/* ============================
-   SELECTION CARDS
-   ============================ */
 
 .select-card {
   width: 260px;
@@ -215,7 +190,7 @@ body {
   align-items: center;
   justify-content: center;
 
-  transition: 0.3s ease;
+  transition: .3s ease;
   cursor: pointer;
 }
 
@@ -228,43 +203,125 @@ body {
   width: 90%;
   height: 90%;
   object-fit: contain;
-  border-radius: 12px;
 }
 
 /* ============================
-   TOOLS GRID (SEPARATE)
+   TOOLS GRID
    ============================ */
 
 .tools-grid {
-  max-width: 900px;
-  margin: 2.5rem auto;
+  max-width: 980px;
+  margin: 3rem auto;
   padding: 0 var(--s-3);
 
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.4rem;
-  justify-items: center;
+  gap: 2rem;
+}
+
+/* =========================================================
+   SECTION 2 — FINAL TOOL CARD SYSTEM (CLEAN)
+   ========================================================= */
+
+.tool-card {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  background:
+    linear-gradient(180deg, #ffffff, #f9fbff),
+    radial-gradient(circle at top right, rgba(10,161,255,.08), transparent 60%);
+  
+  border-radius: 22px;
+  padding: 2rem 2rem 2.2rem;
+
+  box-shadow:
+    0 18px 50px rgba(3, 15, 40, 0.08),
+    inset 0 0 0 1px rgba(0,0,0,.04);
+
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 25px 70px rgba(3, 15, 40, 0.12),
+    inset 0 0 0 1px rgba(0,0,0,.04);
+}
+
+/* Accent strip */
+.tool-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+/* Header */
+
+.tool-card h2 {
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: .3px;
+  margin-bottom: .5rem;
+  color: var(--brand-1);
+}
+
+.tool-subtitle {
+  font-size: .9rem;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+}
+
+/* Back button */
+
+.back-to-menu {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--muted);
+  opacity: .75;
+
+  transition: .2s ease;
+}
+
+.back-to-menu:hover {
+  opacity: 1;
+  transform: translateX(-2px);
 }
 
 /* ============================
-   TOOL CARD
+   FORM LAYOUT
    ============================ */
 
-.tool-card {
-  background: var(--card);
-  width: 100%;
-  padding: 1.5rem;
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow-soft);
+.tool-body {
+  margin-bottom: 1.2rem;
 }
 
-.back-to-menu {
-  background: none;
-  border: none;
-  color: var(--muted);
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .9rem;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  display: block;
+  font-size: .82rem;
   font-weight: 700;
-  cursor: pointer;
-  margin-bottom: 1rem;
+  color: #425b76;
+  margin-bottom: .2rem;
 }
 
 /* ============================
@@ -274,12 +331,22 @@ body {
 .tool-card input,
 .tool-card select {
   width: 100%;
+  height: 48px;
+
   padding: .75rem .9rem;
-  margin-bottom: .6rem;
   border-radius: 14px;
-  border: 1px solid rgba(0,0,0,0.08);
-  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.06);
+
+  background: linear-gradient(180deg, #ffffff, #f7faff);
+  font-size: .95rem;
+  font-weight: 700;
+
   transition: .2s;
+}
+
+.tool-card input::placeholder {
+  color: #8aa0b8;
+  font-weight: 600;
 }
 
 .tool-card input:focus,
@@ -290,19 +357,49 @@ body {
 }
 
 /* ============================
-   OUTPUT
+   BUTTON LAYOUT
    ============================ */
 
-.output {
-  margin-top: .8rem;
-  padding: 1rem;
+.full-btn {
+  width: 100%;
+  height: 48px;
+  margin-top: .5rem;
   border-radius: 14px;
-  background: linear-gradient(135deg,#ecf6ff,#f5fffa);
-  font-weight: 800;
 }
 
 /* ============================
-   MODAL (FIXED IMAGE ISSUE)
+   RESULT PANEL
+   ============================ */
+
+.tool-result {
+  margin-top: 1rem;
+}
+
+.output {
+  position: relative;
+  padding: 1rem 1.2rem;
+
+  border-radius: 16px;
+  background: linear-gradient(180deg, #eef8ff, #f4fffb);
+
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #043a55;
+
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.04);
+}
+
+.output::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 6px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  border-radius: 16px 0 0 16px;
+}
+
+/* ============================
+   MODAL
    ============================ */
 
 .modal {
@@ -316,9 +413,7 @@ body {
   padding: 2rem;
 }
 
-.modal.show {
-  display: flex;
-}
+.modal.show { display: flex; }
 
 .modal-content {
   background: white;
@@ -340,12 +435,6 @@ body {
   margin: 0 auto 1rem;
 }
 
-.back-btn {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-}
-
 /* ============================
    FOOTER
    ============================ */
@@ -353,23 +442,23 @@ body {
 .site-footer {
   margin-top: auto;
   background: var(--bg);
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
-  color: #615e5e;
-  font-weight: 500;
+  color: #acbbbd;
+  font-size: 10px;
+  font-weight: 400;
 }
 
 .site-footer p:last-child {
-  color: #00d4ff;
-  font-weight: 800;
+  color: #acbbbd;
+  font-weight: 400;
 }
 
 /* ============================
-   MOBILE FIXES
+   RESPONSIVE
    ============================ */
 
-@media (max-width: 999px) {
-
+@media (max-width: 1400px) {
   .selection-grid {
     grid-template-columns: 1fr 1fr;
     gap: .8rem;
@@ -380,33 +469,15 @@ body {
     height: 150px;
   }
 
-  #showCalcBtn {
-    display: none !important;
-  }
+  #showCalcBtn { display: none !important; }
+  .hamburger { display: block; }
 
-  .hamburger {
-    display: block;
-  }
+  .tools-grid { padding: 0 1rem; }
 
-  .mobile-menu {
-    right: .5rem;
-    top: calc(100% + 8px);
-  }
-
-  .tools-grid {
-    padding: 0 1rem;
-  }
-
-  .modal-content img {
-    max-height: 240px;
-  }
+  .modal-content img { max-height: 240px; }
 }
-/* ============================
-   DESKTOP + MID-SCREEN FIXES
-   ============================ */
 
-/* Tablets / Small Laptops — 3 per row */
-@media (min-width: 1000px) {
+@media (min-width: 1401px) {
   .selection-grid {
     grid-template-columns: repeat(4, 1fr);
     gap: 1.2rem;
@@ -418,6 +489,17 @@ body {
   }
 }
 
+@media (max-width: 480px) {
+  .grid-2 { grid-template-columns: 1fr; }
+
+  .tool-card {
+    padding: 1.4rem 1.2rem 1.6rem;
+  }
+
+  .tool-card h2 {
+    font-size: 1.2rem;
+  }
+}
 
 /* ============================
    ACCESSIBILITY
@@ -429,7 +511,5 @@ body {
 }
 
 @media (prefers-reduced-motion) {
-  * {
-    transition: none !important;
-  }
+  * { transition: none !important; }
 }
