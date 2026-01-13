@@ -502,18 +502,6 @@ body {
   }
 }
 
-@media (max-width: 480px) {
-  .grid-2 { grid-template-columns: 1fr; }
-
-  .tool-card {
-    padding: 1.4rem 1.2rem 1.6rem;
-  }
-
-  .tool-card h2 {
-    font-size: 1.2rem;
-  }
-}
-
 /* ============================
    ACCESSIBILITY
    ============================ */
